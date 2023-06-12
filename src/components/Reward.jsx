@@ -1,8 +1,6 @@
 import React from 'react'
 import pdfMake from 'pdfmake/build/pdfmake'
 import pdfFonts from 'pdfmake/build/vfs_fonts'
-import './Reward.css'
-
 import { BsFileEarmarkPdf } from 'react-icons/bs'
 
 const Reward = () => {
@@ -23,15 +21,21 @@ const Reward = () => {
         fontSize: 10,
         bold: true,
         margin: [5, 0, 7.5, 0]
+      },
+      {
+        text: 'Todo meu amor é muito pouco...',
+        fontSize: 10,
+        bold: true,
+        margin: [5, 0, 7.5, 0]
       }
     ]
 
     const docDefinitions = {
       pageSize: 'A4',
-      pageMargins: [15,50,15,40],
+      pageMargins: [15, 50, 15, 40],
       header: reportTitlePdf,
       footer: footerPdf,
-      content:detailsPdf
+      content: detailsPdf
     }
 
     pdfMake.createPdf(docDefinitions).download()
@@ -40,13 +44,16 @@ const Reward = () => {
   }
 
   return (
-      <div id='print_letter_section'>
+    <>
+      <div id='print_letter_section' style={{ marginTop: '40%' }}>
         <button onClick={printLetter}>
           Imprimir Carta <i>
             <BsFileEarmarkPdf />
           </i>
         </button>
       </div>
+    </>
+
   )
 }
 
