@@ -3,7 +3,7 @@ import { QuizContext } from "../context/quiz";
 
 import "./Welcome.css";
 
-import Quiz from "../img/quiz.svg";
+import { TbClover } from 'react-icons/tb'
 
 const Welcome = () => {
   const [quizState, dispatch] = useContext(QuizContext);
@@ -15,7 +15,9 @@ const Welcome = () => {
       <button onClick={() => dispatch({ type: "CHANGE_STAGE" })}>
         Iniciar
       </button>
-      <img src={Quiz} alt="Início do Quiz" />
+      <div className="quiz_icon">
+        <TbClover />
+      </div>
     </div>
   );
 };

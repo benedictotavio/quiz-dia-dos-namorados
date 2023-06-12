@@ -7,6 +7,8 @@ import GameOver from "./components/GameOver";
 
 import PickCategory from "./components/PickCategory";
 
+import { AiTwotoneHeart } from 'react-icons/ai'
+
 import "./App.css";
 
 function App() {
@@ -14,7 +16,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Quiz de Programação</h1>
+      <h1>Quiz de Dia dos Namorados<AiTwotoneHeart /></h1>
       {quizState.gameStage === "Start" && <Welcome />}
       {quizState.gameStage === "Category" && <PickCategory />}
       {quizState.gameStage === "Playing" && <Question />}

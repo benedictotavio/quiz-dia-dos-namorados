@@ -19,7 +19,7 @@ const GameOver = () => {
         Você acertou {quizState.score} de {quizState.questions.length}{" "}
         perguntas.
       </p>
-      {quizState.score < 10 ? <button onClick={() => dispatch({ type: "NEW_GAME" })}>Reiniciar</button> : <><h2>Parabens!</h2>
+      {quizState.score <= 9 ? <button onClick={() => dispatch({ type: "NEW_GAME" })}>Reiniciar</button> : <><h2>Parabens!</h2>
         <Link to='/reward'>
           <i>
             <TbMoneybag />
