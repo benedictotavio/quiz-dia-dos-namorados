@@ -1,21 +1,52 @@
 import React from 'react'
+import pdfMake from 'pdfmake/build/pdfmake'
+import pdfFonts from 'pdfmake/build/vfs_fonts'
+import './Reward.css'
+
+import { BsFileEarmarkPdf } from 'react-icons/bs'
 
 const Reward = () => {
+
+  const printLetter = () => {
+    pdfMake.vfs = pdfFonts.pdfMake.vfs
+
+    const reportTitlePdf = [{
+      text: 'Todo meu amor é pouco...',
+      fontSize: 16,
+      bold: true,
+      margin: [15, 0, 25, 0]
+    }]
+    const footerPdf = []
+    const detailsPdf = [
+      {
+        text: 'Todo meu amor é pouco...',
+        fontSize: 10,
+        bold: true,
+        margin: [5, 0, 7.5, 0]
+      }
+    ]
+
+    const docDefinitions = {
+      pageSize: 'A4',
+      pageMargins: [15,50,15,40],
+      header: reportTitlePdf,
+      footer: footerPdf,
+      content:detailsPdf
+    }
+
+    pdfMake.createPdf(docDefinitions).download()
+
+    console.log('Imprimir a carta!');
+  }
+
   return (
-    <div>
-      <h2>Todo o amor é pouco...</h2>
-      <div>
-        <div>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur aperiam veniam, natus consectetur officia rem esse suscipit quibusdam animi eaque molestias, adipisci vitae distinctio soluta ut ab corporis eos a?Lorem ipsum dolor sit amet consectetur adipisicing elit. Et autem totam perferendis atque illum natus deleniti nobis distinctio, velit commodi veniam, debitis dolore id odio doloribus voluptatum ipsam! Consectetur, atque.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim in officiis voluptatibus temporibus veritatis fugiat, nostrum debitis ea a quidem rem autem voluptate vel, eius facere perferendis quam eaque accusamus.
-          </p>
-        </div>
-        <img src="" alt="" />
+      <div id='print_letter_section'>
+        <button onClick={printLetter}>
+          Imprimir Carta <i>
+            <BsFileEarmarkPdf />
+          </i>
+        </button>
       </div>
-    </div>
   )
 }
 
