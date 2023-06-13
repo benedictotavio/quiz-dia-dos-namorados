@@ -13,8 +13,6 @@ const initialState = {
   optionToHide: null,
 };
 
-console.log(initialState);
-
 const quizReducer = (state, action) => {
   switch (action.type) {
     case "CHANGE_STAGE":
@@ -66,8 +64,6 @@ const quizReducer = (state, action) => {
     }
 
     case "NEW_GAME": {
-      console.log(questions);
-      console.log(initialState);
       return initialState;
     }
 
@@ -96,10 +92,6 @@ const quizReducer = (state, action) => {
 
     case "REMOVE_OPTION": {
       const questionWithoutOption = state.questions[state.currentQuestion];
-
-      console.log(state.currentQuestion);
-
-      console.log(questionWithoutOption);
 
       let repeat = true;
       let optionToHide;
